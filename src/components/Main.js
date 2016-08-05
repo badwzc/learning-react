@@ -12,16 +12,30 @@ import RangeSelect from './RangeSelect';
 import CampaignSelect from './CampaignSelect';
 
 class AppComponent extends React.Component {
-    componentDidMount() {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            range: 7,
+            campaign_id: '-1',
+            campaign_title: '全部'
+        }
+        this.changeData = this.changeData.bind(this)
+    }
+    changeData(e, options){
+        this.setState(options)
     }
     render() {
         return (
             <section className="container">
-                <QnHeader></QnHeader>
-                <CampaignSelect></CampaignSelect>
-                <RangeSelect></RangeSelect>
-                <QnFooter></QnFooter>
+                <QnHeader />
+                <CampaignSelect handle={this.changeData} defaultValue={this.state.campaign_id} />
+                <RangeSelect handle={this.changeData} defaultValue={this.state.range} />
+                <p ref="campaignTitle">
+                range: {this.state.range}
+                title: {this.state.campaign_title}
+                campaign_id: {this.state.campaign_id}
+                </p>
+                <QnFooter />
             </section>
         );
     }

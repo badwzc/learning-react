@@ -7,6 +7,13 @@ class CampaignSlect extends React.Component {
     constructor(props) {
         super(props);
         this.displayName = 'CampaignSlect';
+        this.changeHandle = this.changeHandle.bind(this)
+    }
+    changeHandle(e){
+        this.props.handle(e, {
+            campaign_id: e.target.value,
+            campaign_title: e.target.options[e.target.options.selectedIndex].text
+        });
     }
     render() {
         let campaignOptions = [<option key="-1" value="-1">整店</option>];
@@ -17,8 +24,9 @@ class CampaignSlect extends React.Component {
                 </option>
             )
         });
+
         return (
-            <select>
+            <select defaultValue={this.props.defaultValue} onChange={this.changeHandle}>
                 {campaignOptions}
             </select>
         );

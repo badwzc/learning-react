@@ -5,24 +5,22 @@ class RangeSelect extends React.Component {
     constructor(props) {
         super(props);
         this.displayName = 'RangeSelect';
+        this.changeHandle = this.changeHandle.bind(this)
     }
-    // getInitialState() {
-    //     return {
-    //         day: 7
-    //     };
-    // }
+    changeHandle(e){
+        this.props.handle(e, {
+            range: e.target.value
+        })
+    }
     render() {
-        let rangeOptions = [], defaultDay = ""
+        let rangeOptions = [];
         ranges.forEach(function(value){
-            if(value.select) {
-                defaultDay = value.day
-            }
             rangeOptions.push(
                 <option value={value.day} key={value.day}>{value.option}</option>
             )
         })
         return (
-            <select defaultValue={defaultDay}>
+            <select defaultValue={this.props.defaultValue} onChange={this.changeHandle}>
                 {rangeOptions}
             </select>
         );

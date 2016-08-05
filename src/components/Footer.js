@@ -9,7 +9,6 @@ class QnFooter extends React.Component {
         //获取页脚配置
         let footerLinks = require('../data/footerLinks.json'),
             footerLinkComponent = [];
-        console.log(footerLinks)
         footerLinks.forEach(function(link){
             footerLinkComponent.push(
                 <a href={link.address} key={link.icon} className={link.icon}>
