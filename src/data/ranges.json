@@ -1,0 +1,19 @@
+[
+    {
+        "day": 0,
+        "option": "今日实时"
+    },
+    {
+        "day": 1,
+        "option": "昨天"
+    },
+    {
+        "day": 7,
+        "option": "7天",
+        "select": true
+    },
+    {
+        "day": 15,
+        "option": "15天"
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "address": "/",
+        "title": "首页",
+        "icon": "test1"
+    },
+    {
+        "address": "/",
+        "title": "管理",
+        "icon": "test2"
+    },
+    {
+        "address": "/",
+        "title": "重点宝贝",
+        "icon": "test3"
+    },
+    {
+        "address": "/",
+        "title": "标星词",
+        "icon": "test4"
+    },
+    {
+        "address": "/",
+        "title": "更多",
+        "icon": "test5"
+    }
+]
