@@ -14,4 +14,5 @@ ReactDOM.render((
         </Router>
     </Router>
     )
-    , document.getElementById('app'));
+    , document.getElementById('app')
+);

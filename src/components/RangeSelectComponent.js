@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-require('styles//RangeSelect.sass');
+require('styles//RangeSelect.scss');
 
 class RangeSelectComponent extends React.Component {
     changeHandle = (e) => {

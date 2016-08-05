@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-require('styles//CampSelect.sass');
+require('styles//CampSelect.scss');
 
 class CampSelectComponent extends React.Component {
     //http://stackoverflow.com/questions/35303490/uncaught-typeerror-cannot-read-property-props-of-null

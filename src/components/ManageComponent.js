@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-require('styles/Manage.sass');
+require('styles/Manage.scss');
 
 class ManageComponent extends React.Component {
   render() {
