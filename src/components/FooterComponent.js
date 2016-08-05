@@ -1,10 +1,10 @@
+'use strict';
+
 import React from 'react';
 
-class QnFooter extends React.Component {
-    constructor(props) {
-        super(props);
-        this.displayName = 'QnFooter';
-    }
+require('styles//Footer.sass');
+
+class FooterComponent extends React.Component {
     render() {
         //获取页脚配置
         let footerLinks = require('../data/footerLinks.json'),
@@ -26,4 +26,10 @@ class QnFooter extends React.Component {
     }
 }
 
-export default QnFooter;
+FooterComponent.displayName = 'FooterComponent';
+
+// Uncomment properties you need
+// FooterComponent.propTypes = {};
+// FooterComponent.defaultProps = {};
+
+export default FooterComponent;

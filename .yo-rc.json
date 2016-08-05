@@ -1,8 +1,8 @@
 {
   "generator-react-webpack": {
     "appName": "learningReact",
-    "style": "sass",
-    "postcss": false,
+    "style": "scss",
+    "postcss": true,
     "generatedWithVersion": 3
   }
 }

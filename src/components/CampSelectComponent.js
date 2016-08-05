@@ -1,14 +1,10 @@
+'use strict';
+
 import React from 'react';
 
-//获取店铺数据
-let campaigns = require('../data/campaigns.json')
+require('styles//CampSelect.sass');
 
-class CampaignSlect extends React.Component {
-    constructor(props) {
-        super(props);
-        this.displayName = 'CampaignSlect';
-        // this.changeHandle = this.changeHandle.bind(this)
-    }
+class CampSelectComponent extends React.Component {
     //http://stackoverflow.com/questions/35303490/uncaught-typeerror-cannot-read-property-props-of-null
     //TODO 需要用箭头语法
     changeHandle = (e) => {
@@ -18,6 +14,8 @@ class CampaignSlect extends React.Component {
         });
     }
     render() {
+        //获取店铺数据
+        let campaigns = require('../data/campaigns.json')
         let campaignOptions = [<option key="-1" value="-1">整店</option>];
         campaigns.forEach(function(camp){
             campaignOptions.push(
@@ -35,4 +33,10 @@ class CampaignSlect extends React.Component {
     }
 }
 
-export default CampaignSlect;
+CampSelectComponent.displayName = 'CampSelectComponent';
+
+// Uncomment properties you need
+// CampSelectComponent.propTypes = {};
+// CampSelectComponent.defaultProps = {};
+
+export default CampSelectComponent;

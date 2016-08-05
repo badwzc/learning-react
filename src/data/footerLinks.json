@@ -5,22 +5,22 @@
         "icon": "test1"
     },
     {
-        "address": "/",
+        "address": "/manage",
         "title": "管理",
         "icon": "test2"
     },
     {
-        "address": "/",
+        "address": "/important",
         "title": "重点宝贝",
         "icon": "test3"
     },
     {
-        "address": "/",
+        "address": "/stars",
         "title": "标星词",
         "icon": "test4"
     },
     {
-        "address": "/",
+        "address": "/more",
         "title": "更多",
         "icon": "test5"
     }

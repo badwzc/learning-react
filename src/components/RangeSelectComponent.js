@@ -1,17 +1,17 @@
+'use strict';
+
 import React from 'react';
 
-let ranges = require('../data/ranges.json');
-class RangeSelect extends React.Component {
-    constructor(props) {
-        super(props);
-        this.displayName = 'RangeSelect';
-    }
+require('styles//RangeSelect.sass');
+
+class RangeSelectComponent extends React.Component {
     changeHandle = (e) => {
         this.props.handle(e, {
             range: e.target.value
         })
     }
     render() {
+        let ranges = require('../data/ranges.json')
         let rangeOptions = [];
         ranges.forEach(function(value){
             rangeOptions.push(
@@ -26,4 +26,10 @@ class RangeSelect extends React.Component {
     }
 }
 
-export default RangeSelect;
+RangeSelectComponent.displayName = 'RangeSelectComponent';
+
+// Uncomment properties you need
+// RangeSelectComponent.propTypes = {};
+// RangeSelectComponent.defaultProps = {};
+
+export default RangeSelectComponent;
