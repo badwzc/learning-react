@@ -19,9 +19,8 @@ class AppComponent extends React.Component {
             campaign_id: '-1',
             campaign_title: '全部'
         }
-        this.changeData = this.changeData.bind(this)
     }
-    changeData(e, options){
+    changeData = (e, options) => {
         this.setState(options)
     }
     render() {

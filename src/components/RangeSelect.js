@@ -5,9 +5,8 @@ class RangeSelect extends React.Component {
     constructor(props) {
         super(props);
         this.displayName = 'RangeSelect';
-        this.changeHandle = this.changeHandle.bind(this)
     }
-    changeHandle(e){
+    changeHandle = (e) => {
         this.props.handle(e, {
             range: e.target.value
         })

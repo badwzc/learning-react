@@ -7,9 +7,11 @@ class CampaignSlect extends React.Component {
     constructor(props) {
         super(props);
         this.displayName = 'CampaignSlect';
-        this.changeHandle = this.changeHandle.bind(this)
+        // this.changeHandle = this.changeHandle.bind(this)
     }
-    changeHandle(e){
+    //http://stackoverflow.com/questions/35303490/uncaught-typeerror-cannot-read-property-props-of-null
+    //TODO 需要用箭头语法
+    changeHandle = (e) => {
         this.props.handle(e, {
             campaign_id: e.target.value,
             campaign_title: e.target.options[e.target.options.selectedIndex].text
