@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './components/Main';
 import Manage from './components/ManageComponent';
 import Index from './components/IndexComponent';
-import { Router, browserHistory, IndexRoute } from 'react-router'
+import { Router, browserHistory, hashHistory, IndexRoute } from 'react-router'
 // Render the main component into the dom
 ReactDOM.render((
     <Router history={browserHistory}>

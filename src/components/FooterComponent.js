@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import { Link } from 'react-router'
 
 require('styles//Footer.scss');
 
@@ -11,9 +12,9 @@ class FooterComponent extends React.Component {
             footerLinkComponent = [];
         footerLinks.forEach(function(link){
             footerLinkComponent.push(
-                <a href={link.address} key={link.icon} className={link.icon}>
+                <Link to={link.address} key={link.icon} className={link.icon}>
                     {link.title}
-                </a>
+                </Link>
             )
         })
         return (
