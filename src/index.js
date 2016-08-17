@@ -4,15 +4,20 @@ import ReactDOM from 'react-dom';
 import App from './components/Main';
 import Manage from './components/ManageComponent';
 import Index from './components/IndexComponent';
-import { Router, browserHistory, hashHistory, IndexRoute } from 'react-router'
+
+import { Router, Route, IndexRoute } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './stores/index';
 // Render the main component into the dom
 ReactDOM.render((
-    <Router history={browserHistory}>
-        <Router path="/" component={App}>
-            <IndexRoute component={Index} />
-            <Router path="/manage" component={Manage} />
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Index} />
+                <Route path="/manage" component={Manage} />
+            </Route>
         </Router>
-    </Router>
+    </Provider>
     )
     , document.getElementById('app')
 );
