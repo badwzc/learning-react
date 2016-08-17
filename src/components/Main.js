@@ -1,16 +1,15 @@
 require('normalize.css/normalize.css');
-require('styles/App.scss');
+require('styles/Main.scss');
 
 import React from 'react';
 
 //千牛头部
-import QnHeader from './HeaderComponent';
 //千牛页脚
 import QnFooter from './FooterComponent';
 
 
 
-class AppComponent extends React.Component {
+class Main extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -18,8 +17,7 @@ class AppComponent extends React.Component {
     render() {
         return (
             <section className="container">
-                <QnHeader />
-                {this.props.children}
+                {React.cloneElement(this.props.children, this.props)}
                 <QnFooter />
             </section>
         );
@@ -27,7 +25,7 @@ class AppComponent extends React.Component {
 }
 
 
-AppComponent.defaultProps = {
+Main.defaultProps = {
 };
 
-export default AppComponent;
+export default Main;

@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import QnHeader from './HeaderComponent';
 import RangeSelect from './RangeSelectComponent';
 import CampaignSelect from './CampSelectComponent';
 
@@ -94,6 +95,7 @@ class IndexComponent extends React.Component {
         return (
 
             <section className="index-component">
+                <QnHeader />
                 <CampaignSelect handle={this.changeData} defaultValue={this.state.campaign_id} />
                 <RangeSelect handle={this.changeData} defaultValue={this.state.range} />
                 <p ref="campaignTitle">

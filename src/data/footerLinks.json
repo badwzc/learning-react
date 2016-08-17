@@ -10,12 +10,12 @@
         "icon": "test2"
     },
     {
-        "address": "/important",
+        "address": "/manage_important_adgroups",
         "title": "重点宝贝",
         "icon": "test3"
     },
     {
-        "address": "/stars",
+        "address": "/manage_important_keywords",
         "title": "标星词",
         "icon": "test4"
     },
