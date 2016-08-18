@@ -1,20 +1,22 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
-
+import thunk from 'redux-thunk';
 // import the root reducer
 import rootReducer from '../reducers/index';
 
-import campaigns from '../data/campaigns.json';
 // import posts from './data/posts';
 
 // create an object for the default data
-
-const defaultState = {
-  campaigns
-};
-
-const store = createStore(rootReducer, defaultState);
+// let balance = '', campaigns = []
+// const defaultState = {
+//     balance,
+//     campaigns
+// }
+const store = createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

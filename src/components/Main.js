@@ -8,7 +8,6 @@ import React from 'react';
 import QnFooter from './FooterComponent';
 
 
-
 class Main extends React.Component {
     constructor(props) {
         super(props);

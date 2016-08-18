@@ -26,7 +26,6 @@ class IndexComponent extends React.Component {
             text_value: e.target.value
         })
     }
-
     render() {
         let tableJson = [
             {
@@ -82,28 +81,29 @@ class IndexComponent extends React.Component {
                 value: '0.00'
             }
         ]
-        let tableComponent = [], trCols = 4, tr = [], trKey = 0;
-        tableJson.forEach(function(tdData){
+        let tableComponent = [], trCols = 4, tr = [];
+        tableJson.forEach(function(tdData, index){
             trCols -= tdData.colSpan || 1
-            tr.push(<td colSpan={tdData.colSpan} key={tdData.name}><span>{tdData.value}</span><span>{tdData.title}</span></td>)
+            tr.push(<td colSpan={tdData.colSpan} key={tdData.name}><span className="number">{tdData.value}</span><span className="title">{tdData.title}</span></td>)
             if(trCols === 0) {
-                tableComponent.push(<tr key={trKey++}>{tr}</tr>)
+                tableComponent.push(<tr key={index}>{tr}</tr>)
                 tr = []
                 trCols = 4;
             }
         })
+
         return (
 
             <section className="index-component">
-                <QnHeader />
-                <CampaignSelect handle={this.changeData} defaultValue={this.state.campaign_id} />
+                <QnHeader {...this.props}/>
+                <CampaignSelect {...this.props} handle={this.changeData} defaultValue={this.state.campaign_id} />
                 <RangeSelect handle={this.changeData} defaultValue={this.state.range} />
                 <p ref="campaignTitle">
                 range: {this.state.range}
                 title: {this.state.campaign_title}
                 campaign_id: {this.state.campaign_id}
                 </p>
-                <table>
+                <table className="report-table">
                     <tbody>
                         {tableComponent}
                     </tbody>

@@ -1,0 +1,2 @@
+export const GET_BALANCE = 'GET_BALANCE';
+export const GET_CAMPAIGNS = 'GET_CAMPAIGNS';

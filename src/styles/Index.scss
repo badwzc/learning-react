@@ -1,3 +1,29 @@
 .index-component {
   border: 1px dashed #f00;
 }
+.report-table{
+    border-collapse:collapse;
+    border-spacing:0;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    td {
+        border: 1px solid #dddbd8;
+        padding: 2px 0 6px 6px;
+    }
+    .selected{
+        background: gradient(linear, 0 0, 0 100%, from(#c2e4fb), to(#b9dffa));
+        box-shadow: 0px 1px 5px #3a3b3c;
+    }
+    .number{
+        font-size: 25px;
+        color: #188bd3;
+        display: block;
+    }
+    .title{
+        display: block;
+        font-size: 12px;
+        color: #848282;
+    }
+}

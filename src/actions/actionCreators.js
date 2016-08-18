@@ -1,27 +1,16 @@
-// increment
-export function increment(index) {
-  return {
-    type: 'INCREMENT_LIKES',
-    index
-  }
+// 获取首页余额
+import {GET_CAMPAIGNS, GET_BALANCE} from '../constants/index';
+
+export function getBalance(balance) {
+    return {
+        type: GET_BALANCE,
+        balance
+    }
+}
+export function getCampaigns(campaigns) {
+    return {
+        type: GET_CAMPAIGNS,
+        campaigns
+    }
 }
 
-// add comment
-export function addComment(postId, author, comment) {
-  return {
-    type: 'ADD_COMMENT',
-    postId,
-    author,
-    comment
-  }
-}
-
-// remove comment
-
-export function removeComment(postId, i) {
-  return {
-    type: 'REMOVE_COMMENT',
-    i,
-    postId
-  }
-}

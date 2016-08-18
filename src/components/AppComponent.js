@@ -8,7 +8,8 @@ require('styles/App.scss');
 
 function mapStateToProps(state) {
   return {
-    campaigns: state.campaigns
+    campaigns: state.campaigns,
+    balance: state.balance
   }
 }
 

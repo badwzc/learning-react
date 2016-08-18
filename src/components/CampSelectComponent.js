@@ -13,21 +13,25 @@ class CampSelectComponent extends React.Component {
             campaign_title: e.target.options[e.target.options.selectedIndex].text
         });
     }
-    render() {
+    componentWillMount() {
         //获取店铺数据
-        let campaigns = require('../data/campaigns.json')
-        let campaignOptions = [<option key="-1" value="-1">整店</option>];
-        campaigns.forEach(function(camp){
-            campaignOptions.push(
-                <option key={camp.campaign_id} value={camp.campaign_id}>
-                    {camp.title}
-                </option>
-            )
-        });
-
+        setTimeout(function(){
+            let campaigns = require('../data/campaigns.json')
+            this.props.getCampaigns(campaigns)
+        }.bind(this), 500)
+    }
+    renderCampaignOptions(campaign, i) {
+        return(
+            <option key={i} value={campaign.campaign_id}>
+                {campaign.title}
+            </option>
+        )
+    }
+    render() {
         return (
-            <select defaultValue={this.props.defaultValue} onChange={this.changeHandle}>
-                {campaignOptions}
+            <select className="report_select" defaultValue={this.props.defaultValue} onChange={this.changeHandle}>
+                <option key="-1" value="-1">整店</option>
+                {this.props.campaigns.map(this.renderCampaignOptions)}
             </select>
         );
     }

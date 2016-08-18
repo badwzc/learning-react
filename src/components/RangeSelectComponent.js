@@ -19,7 +19,7 @@ class RangeSelectComponent extends React.Component {
             )
         })
         return (
-            <select defaultValue={this.props.defaultValue} onChange={this.changeHandle}>
+            <select className="report_range" defaultValue={this.props.defaultValue} onChange={this.changeHandle}>
                 {rangeOptions}
             </select>
         );
