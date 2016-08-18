@@ -16,7 +16,7 @@ class CampSelectComponent extends React.Component {
     componentWillMount() {
         //获取店铺数据
         setTimeout(function(){
-            let campaigns = require('../data/campaigns.json')
+            let campaigns = require('../data/campaignList.json')
             this.props.getCampaigns(campaigns)
         }.bind(this), 500)
     }

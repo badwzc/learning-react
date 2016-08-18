@@ -1,2 +1,5 @@
 export const GET_BALANCE = 'GET_BALANCE';
 export const GET_CAMPAIGNS = 'GET_CAMPAIGNS';
+
+export const REQUEST_POSTS = 'REQUEST_POSTS'
+export const RECEIVE_POSTS = 'RECEIVE_POSTS'

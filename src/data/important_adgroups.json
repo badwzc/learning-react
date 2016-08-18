@@ -1,0 +1,23 @@
+ [
+    {
+        "default_price": 30,
+        "online_status": "online",
+        "campaign_id": 9254451,
+        "modified_time": {
+            "$date": 1470910195000
+        },
+        "reason": null,
+        "create_time": {
+            "$date": 1469188206000
+        },
+        "offline_type": "online",
+        "adgroup_id": 699591970,
+        "mobile_discount": 60,
+        "nonsearch_max_price": 0,
+        "num_iid": 39128684991,
+        "category_ids": "50010404 50009047",
+        "nick": "麦苗科技001",
+        "is_nonsearch_default_price": 1,
+        "_id": 699591970
+    }
+]

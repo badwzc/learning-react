@@ -13,6 +13,18 @@ class Main extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        const {dispatch, selectCampaign} = this.props
+        // dispatch(fetchPostsIfNeeded(selectCampaign))
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.selectCampaign !== this.props.selectCampaign) {
+            const { dispatch, selectCampaign } = nextProps
+            // dispatch(fetchPostsIfNeeded(selectCampaign))
+        }
+    }
+
     render() {
         return (
             <section className="container">
