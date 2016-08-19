@@ -12,16 +12,18 @@ function mapStateToProps(state) {
         campaigns, //计划列表
         balance, //账户余额
         range, //报表天数
-        selectCampaign, //首页选择的计划
-        reports //报表合集
+        selectCampaign //首页选择的计划
+        // reports //报表合集
     } = state
 
+    const { selectedReddit, postsByReddit } = state
     const {
         isFetching,
-        rpts: rpts
-    } = /*reports[selectCampaign] || */{
+        lastUpdated,
+        items: posts
+    } = postsByReddit[selectedReddit] || {
         isFetching: true,
-        rpts: []
+        items: []
     }
 
     return {
@@ -29,7 +31,12 @@ function mapStateToProps(state) {
         balance,
         range,
         selectCampaign,
-        rpts
+        // rpts,
+
+        selectedReddit,
+        posts,
+        isFetching,
+        lastUpdated
     }
 }
 
