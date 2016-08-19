@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 
 require('styles//RangeSelect.scss');
 
-class RangeSelectComponent extends React.Component {
+class RangeSelectComponent extends Component {
     changeHandle = (e) => {
         this.props.handle(e, {
             range: e.target.value

@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 
 require('styles//More.scss');
 
-class MoreComponent extends React.Component {
+class MoreComponent extends Component {
   render() {
     return (
       <div className="more-component">

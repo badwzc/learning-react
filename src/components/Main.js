@@ -1,21 +1,21 @@
 require('normalize.css/normalize.css');
 require('styles/Main.scss');
 
-import React from 'react';
+import { Component, cloneElement } from 'react';
 
 //千牛头部
 //千牛页脚
 import QnFooter from './FooterComponent';
 
 
-class Main extends React.Component {
+class Main extends Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
             <section className="container">
-                {React.cloneElement(this.props.children, this.props)}
+                {cloneElement(this.props.children, this.props)}
                 <QnFooter />
             </section>
         );

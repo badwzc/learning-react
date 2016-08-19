@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 
 require('styles//Header.scss');
 
-class HeaderComponent extends React.Component {
+class HeaderComponent extends Component {
     componentDidMount() {
         setTimeout(function(){
             let balance = require('../data/account_balance.json')

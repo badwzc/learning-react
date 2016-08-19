@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 import {Link} from 'react-router';
 require('styles/Manage.scss');
 
-class ManageComponent extends React.Component {
+class ManageComponent extends Component {
     renderCampaigns(campaign) {
         return(
             <li key={campaign.campaign_id}>

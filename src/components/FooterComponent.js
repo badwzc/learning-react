@@ -1,11 +1,11 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 import { Link } from 'react-router'
 
 require('styles//Footer.scss');
 
-class FooterComponent extends React.Component {
+class FooterComponent extends Component {
     render() {
         //获取页脚配置
         let footerLinks = require('../data/footerLinks.json'),

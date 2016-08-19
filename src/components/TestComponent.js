@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 
 require('styles//Test.scss');
 
-class TestComponent extends React.Component {
+class TestComponent extends Component {
     constructor(props) {
         super(props)
         this.handleChange = this.handleChange.bind(this)

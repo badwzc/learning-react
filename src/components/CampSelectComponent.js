@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 
 require('styles//CampSelect.scss');
 
-class CampSelectComponent extends React.Component {
+class CampSelectComponent extends Component {
     //http://stackoverflow.com/questions/35303490/uncaught-typeerror-cannot-read-property-props-of-null
     //TODO 需要用箭头语法
     changeHandle = (e) => {

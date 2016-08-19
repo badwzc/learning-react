@@ -1,13 +1,13 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 import QnHeader from './HeaderComponent';
 import RangeSelect from './RangeSelectComponent';
 import CampaignSelect from './CampSelectComponent';
 
 require('styles//Index.scss');
 
-class IndexComponent extends React.Component {
+class IndexComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {

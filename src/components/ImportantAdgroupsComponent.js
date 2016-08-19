@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 
 require('styles//ImportantAdgroups.scss');
 
-class ImportantAdgroupsComponent extends React.Component {
+class ImportantAdgroupsComponent extends Component {
   render() {
     return (
       <div className="importantadgroups-component">

@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react';
+import { Component } from 'react';
 
 require('styles//ImportantKeywords.scss');
 
-class ImportantKeywordsComponent extends React.Component {
+class ImportantKeywordsComponent extends Component {
   render() {
     return (
       <div className="importantkeywords-component">
