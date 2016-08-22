@@ -30,4 +30,3 @@ npm-debug.log
 bower_components/
 
 #dist 目录暂时不上传
-dist/
