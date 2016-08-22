@@ -12,13 +12,13 @@ class TestComponent extends Component {
     }
     componentDidMount() {
         const {  selectedReddit, fetchPostsIfNeeded } = this.props
-        fetchPostsIfNeeded(selectedReddit)
+        fetchPostsIfNeeded(selectedReddit, 'https://www.reddit.com/r/')
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.selectedReddit !== this.props.selectedReddit) {
             const { fetchPostsIfNeeded, selectedReddit } = nextProps
-            fetchPostsIfNeeded(selectedReddit)
+            fetchPostsIfNeeded(selectedReddit, 'https://www.reddit.com/r/')
         }
     }
     handleChange(nextReddit) {
@@ -29,7 +29,7 @@ class TestComponent extends Component {
 
         const {selectedReddit, invalidateReddit, fetchPostsIfNeeded } = this.props
         invalidateReddit(selectedReddit)
-        fetchPostsIfNeeded(selectedReddit)
+        fetchPostsIfNeeded(selectedReddit, 'https://www.reddit.com/r/')
     }
     renderPosts(post, i) {
         return (<li key={i}>{post.title}</li>)

@@ -11,6 +11,10 @@ class HeaderComponent extends Component {
             this.props.getBalance(balance.data)
         }.bind(this), 3000)
     }
+    componentDidMount() {
+        const {  selectedReddit, fetchPostsIfNeeded } = this.props
+        fetchPostsIfNeeded('account_balance', '../data/')
+    }
     render() {
         let logo = require('../images/Logo_80x80.png')
         return (
