@@ -1,6 +1,6 @@
 'use strict';
 
-import { Component } from 'react';
+import React, { Component } from 'react';
 import QnHeader from './HeaderComponent';
 import RangeSelect from './RangeSelectComponent';
 import CampaignSelect from './CampSelectComponent';

@@ -1,7 +1,7 @@
 require('normalize.css/normalize.css');
 require('styles/Main.scss');
 
-import { Component, cloneElement } from 'react';
+import React, { Component, cloneElement } from 'react';
 
 //千牛头部
 //千牛页脚
