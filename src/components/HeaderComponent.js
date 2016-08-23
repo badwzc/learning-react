@@ -1,19 +1,14 @@
 'use strict';
 
 import React, { Component } from 'react';
+import { GET_BALANCE } from '../constants';
 
 require('styles//Header.scss');
 
 class HeaderComponent extends Component {
     componentDidMount() {
-        setTimeout(function(){
-            let balance = require('../data/account_balance.json')
-            this.props.getBalance(balance.data)
-        }.bind(this), 3000)
-    }
-    componentDidMount() {
-        const {  selectedReddit, fetchPostsIfNeeded } = this.props
-        fetchPostsIfNeeded('account_balance', '../data/')
+        const { ajaxPostData } = this.props
+        ajaxPostData('account_balance', GET_BALANCE)
     }
     render() {
         let logo = require('../images/Logo_80x80.png')

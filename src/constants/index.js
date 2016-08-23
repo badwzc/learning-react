@@ -1,7 +1,7 @@
 export const GET_BALANCE = 'GET_BALANCE';
 export const GET_CAMPAIGNS = 'GET_CAMPAIGNS';
+export const SET_RANGE = 'SET_RANGE'
+export const SELECT_CAMPAIGN = 'SELECT_CAMPAIGN'
+export const GET_INDEX_RPT = 'GET_INDEX_RPT'
 
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const SELECT_REDDIT = 'SELECT_REDDIT'
-export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT'
+

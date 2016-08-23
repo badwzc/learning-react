@@ -4,86 +4,33 @@ import React, { Component } from 'react';
 import QnHeader from './HeaderComponent';
 import RangeSelect from './RangeSelectComponent';
 import CampaignSelect from './CampSelectComponent';
+import { GET_INDEX_RPT } from '../constants';
+import baseConfig from '../config/base';
 
 require('styles//Index.scss');
 
 class IndexComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            range: 7,
-            campaign_id: '-1',
-            campaign_title: '全部',
-            text_value: '123',
-            items: ['hello', 'world', 'click', 'me']
-        }
     }
-    changeData = (e, options) => {
-        this.setState(options)
+
+    componentDidMount() {
+        const { ajaxPostData, range, selectCampaignId } = this.props
+        ajaxPostData(`rpt_${selectCampaignId}_${range}`, GET_INDEX_RPT)
     }
-    inputChange = (e) => {
-        this.setState({
-            text_value: e.target.value
-        })
-    }
-    render() {
-        let tableJson = [
-            {
-                name: 'cost',
-                title: '总花费',
-                value: '0.00',
-                colSpan: 2
-            },
-            {
-                name: 'pay',
-                title: '成交额',
-                value: '0.00',
-                colSpan: 2
-            },
-            {
-                name: 'impressions',
-                title: '展现量',
-                value: '0.00'
-            },
-            {
-                name: 'click',
-                title: '点击量',
-                value: '0.00'
-            },
-            {
-                name: 'fav_count',
-                title: '收藏数',
-                value: '0.00'
-            },
-            {
-                name: 'pay_count',
-                title: '成交数',
-                value: '0.00'
-            },
-            {
-                name: 'ctr',
-                title: '点击率',
-                value: '0.00'
-            },
-            {
-                name: 'cpc',
-                title: '平均花费',
-                value: '0.00'
-            },
-            {
-                name: 'cvr',
-                title: '转化率',
-                value: '0.00'
-            },
-            {
-                name: 'roi',
-                title: 'ROI',
-                value: '0.00'
-            }
-        ]
+
+    tableRender() {
+        let { indexRpt } = this.props
+        let tableJson = baseConfig.tableConfig
         let tableComponent = [], trCols = 4, tr = [];
+        let indexRptLen = indexRptLen.length
+
         tableJson.forEach(function(tdData, index){
             trCols -= tdData.colSpan || 1
+            let value = 0;
+            indexRpt.forEach(function(rpt, index){
+                value += rpt
+            })
             tr.push(<td colSpan={tdData.colSpan} key={tdData.name}><span className="number">{tdData.value}</span><span className="title">{tdData.title}</span></td>)
             if(trCols === 0) {
                 tableComponent.push(<tr key={index}>{tr}</tr>)
@@ -91,21 +38,17 @@ class IndexComponent extends Component {
                 trCols = 4;
             }
         })
-
+        return tableComponent
+    }
+    render() {
         return (
-
             <section className="index-component">
                 <QnHeader {...this.props}/>
-                <CampaignSelect {...this.props} handle={this.changeData} defaultValue={this.state.campaign_id} />
-                <RangeSelect handle={this.changeData} defaultValue={this.state.range} />
-                <p ref="campaignTitle">
-                range: {this.state.range}
-                title: {this.state.campaign_title}
-                campaign_id: {this.state.campaign_id}
-                </p>
+                <CampaignSelect {...this.props}/>
+                <RangeSelect {...this.props}/>
                 <table className="report-table">
                     <tbody>
-                        {tableComponent}
+                        {this.tableRender()}
                     </tbody>
                 </table>
             </section>

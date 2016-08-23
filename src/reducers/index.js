@@ -1,15 +1,14 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import campaigns from './campaigns';
-import balance from './balance';
-import {selectedReddit, postsByReddit } from './post';
+import {campaigns, balance, range, selectCampaignId, indexRpt } from './home';
 
 const rootReducer = combineReducers({
-    selectedReddit,
-    postsByReddit,
     campaigns,
     balance,
+    range,
+    selectCampaignId,
+    indexRpt,
     routing: routerReducer
 })
 

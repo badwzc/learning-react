@@ -7,8 +7,7 @@ import Manage from './components/ManageComponent';
 import Index from './components/IndexComponent';
 import ImportantAdgroups from './components/ImportantAdgroupsComponent';
 import ImportantKeywords from './components/ImportantKeywordsComponent';
-// import More from './components/MoreComponent';
-import Test from './components/TestComponent';
+import More from './components/MoreComponent';
 
 import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
@@ -22,7 +21,7 @@ ReactDOM.render((
                 <Route path="/manage" component={Manage}></Route>
                 <Route path="/manage_important_adgroups" component={ImportantAdgroups}></Route>
                 <Route path="/manage_important_keywords" component={ImportantKeywords}></Route>
-                <Route path="/more" component={Test}></Route>
+                <Route path="/more" component={More}></Route>
             </Route>
         </Router>
     </Provider>

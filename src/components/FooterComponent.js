@@ -2,13 +2,14 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router'
+import baseConfig from '../config/base'
 
 require('styles//Footer.scss');
 
 class FooterComponent extends Component {
     render() {
         //获取页脚配置
-        let footerLinks = require('../data/footerLinks.json'),
+        let footerLinks = baseConfig.footerLink,
             footerLinkComponent = [];
         footerLinks.forEach(function(link){
             footerLinkComponent.push(

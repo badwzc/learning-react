@@ -1,0 +1,44 @@
+[
+    {
+        name: 'cost',
+        title: '总花费',
+        colSpan: 2
+    },
+    {
+        name: 'pay',
+        title: '成交额',
+        colSpan: 2
+    },
+    {
+        name: 'impressions',
+        title: '展现量'
+    },
+    {
+        name: 'click',
+        title: '点击量'
+    },
+    {
+        name: 'fav_count',
+        title: '收藏数'
+    },
+    {
+        name: 'pay_count',
+        title: '成交数'
+    },
+    {
+        name: 'ctr',
+        title: '点击率'
+    },
+    {
+        name: 'cpc',
+        title: '平均花费'
+    },
+    {
+        name: 'cvr',
+        title: '转化率'
+    },
+    {
+        name: 'roi',
+        title: 'ROI'
+    }
+]

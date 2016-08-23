@@ -1,24 +1,19 @@
 'use strict';
 
 import React, { Component } from 'react';
-
+import { GET_CAMPAIGNS } from '../constants';
 require('styles//CampSelect.scss');
 
 class CampSelectComponent extends Component {
     //http://stackoverflow.com/questions/35303490/uncaught-typeerror-cannot-read-property-props-of-null
     //TODO 需要用箭头语法
     changeHandle = (e) => {
-        this.props.handle(e, {
-            campaign_id: e.target.value,
-            campaign_title: e.target.options[e.target.options.selectedIndex].text
-        });
+        this.props.selectCampaign(e.target.value - 0)
     }
-    componentWillMount() {
-        //获取店铺数据
-        setTimeout(function(){
-            let campaigns = require('../data/campaignList.json')
-            this.props.getCampaigns(campaigns)
-        }.bind(this), 500)
+    componentDidMount() {
+        const { ajaxPostData } = this.props;
+        ajaxPostData('campaign_list', GET_CAMPAIGNS)
+
     }
     renderCampaignOptions(campaign, i) {
         return(
@@ -29,7 +24,7 @@ class CampSelectComponent extends Component {
     }
     render() {
         return (
-            <select className="report_select" defaultValue={this.props.defaultValue} onChange={this.changeHandle}>
+            <select className="report_select" defaultValue={this.selectCampaignId} onChange={this.changeHandle}>
                 <option key="-1" value="-1">整店</option>
                 {this.props.campaigns.map(this.renderCampaignOptions)}
             </select>
