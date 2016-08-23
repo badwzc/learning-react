@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import QnHeader from './HeaderComponent';
 import RangeSelect from './RangeSelectComponent';
 import CampaignSelect from './CampSelectComponent';
+
 import { GET_INDEX_RPT } from '../constants';
 import baseConfig from '../config/base';
 
@@ -23,14 +24,14 @@ class IndexComponent extends Component {
         let { indexRpt } = this.props
         let tableJson = baseConfig.tableConfig
         let tableComponent = [], trCols = 4, tr = [];
-        let indexRptLen = indexRptLen.length
 
         tableJson.forEach(function(tdData, index){
             trCols -= tdData.colSpan || 1
             let value = 0;
-            indexRpt.forEach(function(rpt, index){
-                value += rpt
+            indexRpt.forEach(function(rpt){
+                value += rpt[tdData.name]
             })
+            tdData.value = value
             tr.push(<td colSpan={tdData.colSpan} key={tdData.name}><span className="number">{tdData.value}</span><span className="title">{tdData.title}</span></td>)
             if(trCols === 0) {
                 tableComponent.push(<tr key={index}>{tr}</tr>)

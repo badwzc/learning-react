@@ -1,0 +1,127 @@
+[
+    {
+        "default_price": 30,
+        "online_status": "online",
+        "price": 1234,
+        "campaign_id": 9214487,
+        "modified_time": {
+            "$date": 1471971354000
+        },
+        "reason": null,
+        "create_time": {
+            "$date": 1471971354000
+        },
+        "detail_url": "http://item.taobao.com/item.htm?id=39129960740&spm=2015.12685542.0.0",
+        "offline_type": "online",
+        "pic_url": "https://img.alicdn.com/bao/uploaded/i4/TB1WRVJFVXXXXcOXFXXXXXXXXXX_!!0-item_pic.jpg",
+        "adgroup_id": 705700436,
+        "mobile_discount": 158,
+        "nonsearch_max_price": 0,
+        "num_iid": 39129960740,
+        "category_ids": "50010404 302910",
+        "nick": "麦苗科技001",
+        "is_nonsearch_default_price": 0,
+        "title": "隐身帽魔术帽宋仲基同款奥特曼克星",
+        "_id": 705700436
+    },
+    {
+        "default_price": 30,
+        "online_status": "offline",
+        "price": 138,
+        "campaign_id": 9214487,
+        "modified_time": {
+            "$date": 1471881601000
+        },
+        "reason": "",
+        "create_time": {
+            "$date": 1471879025000
+        },
+        "detail_url": "http://item.taobao.com/item.htm?id=18261167254&spm=2015.12685542.0.0",
+        "offline_type": "online",
+        "pic_url": "https://img.alicdn.com/bao/uploaded/i4/TB1ojC8GpXXXXcUaXXXXXXXXXXX_!!2-item_pic.png",
+        "adgroup_id": 706241732,
+        "mobile_discount": 158,
+        "nonsearch_max_price": 0,
+        "num_iid": 18261167254,
+        "category_ids": "30 50010158",
+        "nick": "麦苗科技001",
+        "is_nonsearch_default_price": 1,
+        "title": "福袋",
+        "_id": 706241732
+    },
+    {
+        "default_price": 30,
+        "online_status": "online",
+        "price": 138.5,
+        "campaign_id": 9214487,
+        "modified_time": {
+            "$date": 1471971337000
+        },
+        "reason": null,
+        "create_time": {
+            "$date": 1471865705000
+        },
+        "detail_url": "http://item.taobao.com/item.htm?id=21579352934&spm=2015.12685542.0.0",
+        "offline_type": "online",
+        "pic_url": "https://img.alicdn.com/bao/uploaded/i1/17117018830161569/T1IYcwXj4fXXXXXXXX_!!0-item_pic.jpg",
+        "adgroup_id": 707089442,
+        "mobile_discount": 158,
+        "nonsearch_max_price": 0,
+        "num_iid": 21579352934,
+        "category_ids": "30 50010158",
+        "nick": "麦苗科技001",
+        "is_nonsearch_default_price": 1,
+        "title": "J06*2011秋冬新品 男士修身牛仔夹克 牛仔外套男 牛仔衣张国立代",
+        "_id": 707089442
+    },
+    {
+        "default_price": 30,
+        "online_status": "online",
+        "price": 999,
+        "campaign_id": 9214487,
+        "modified_time": {
+            "$date": 1471971337000
+        },
+        "reason": null,
+        "create_time": {
+            "$date": 1471871774000
+        },
+        "detail_url": "http://item.taobao.com/item.htm?id=39095987083&spm=2015.12685542.0.0",
+        "offline_type": "online",
+        "pic_url": "https://img.alicdn.com/bao/uploaded/i4/871727117/TB2DfLUnVXXXXbWXpXXXXXXXXXX_!!871727117.jpg",
+        "adgroup_id": 707135413,
+        "mobile_discount": 88,
+        "nonsearch_max_price": 0,
+        "num_iid": 39095987083,
+        "category_ids": "50013864 50013865",
+        "nick": "麦苗科技001",
+        "is_nonsearch_default_price": 1,
+        "title": "特价人鱼眼泪皇冠精致回头率高低头不会掉可定制",
+        "_id": 707135413
+    },
+    {
+        "default_price": 30,
+        "online_status": "online",
+        "price": 21900,
+        "campaign_id": 9214487,
+        "modified_time": {
+            "$date": 1471971338000
+        },
+        "reason": null,
+        "create_time": {
+            "$date": 1471871883000
+        },
+        "detail_url": "http://item.taobao.com/item.htm?id=39120525946&spm=2015.12685542.0.0",
+        "offline_type": "online",
+        "pic_url": "https://img.alicdn.com/bao/uploaded/i3/871727117/TB2nTQlnVXXXXXtXpXXXXXXXXXX_!!871727117.jpg",
+        "adgroup_id": 707163117,
+        "mobile_discount": 158,
+        "nonsearch_max_price": 0,
+        "num_iid": 39120525946,
+        "category_ids": "16 50010850",
+        "nick": "麦苗科技001",
+        "is_nonsearch_default_price": 1,
+        "title": "2016夏季新款连衣裙女韩版大码显瘦百搭收腰中长款雪纺连衣裙",
+        "_id": 707163117
+    }
+]

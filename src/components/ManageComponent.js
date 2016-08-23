@@ -8,7 +8,7 @@ class ManageComponent extends Component {
     renderCampaigns(campaign) {
         return(
             <li key={campaign.campaign_id}>
-                <Link to="/" className="campaign" id={campaign.campaign_id}>
+                <Link to={`/campaign/${campaign.campaign_id}`} className="campaign" id={campaign.campaign_id}>
                     <span className="title">{campaign.title}</span>
                     <span className="campaign-status icon-arrows-cw">{campaign.type_name}计划</span>
                 </Link>

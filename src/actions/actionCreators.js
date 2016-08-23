@@ -11,11 +11,19 @@ import {
     GET_BALANCE,
     SET_RANGE,
     SELECT_CAMPAIGN,
-    GET_INDEX_RPT
+    GET_INDEX_RPT,
+    GET_ADGROUPS,
+    SET_ONLONE_STATUS
 } from '../constants';
 
-//range
+export function changeOnlineStatus(index) {
+    return {
+        type: SET_ONLONE_STATUS,
+        index
+    }
+}
 
+//range
 export function setRange(range) {
     return (dispatch, getState) => {
         const { selectCampaignId } = getState()
@@ -83,7 +91,14 @@ const actionList = {
             type: GET_INDEX_RPT,
             indexRpt
         }
+    },
+    GET_ADGROUPS: function(adgroups) {
+        return {
+            type: GET_ADGROUPS,
+            adgroups
+        }
     }
+
 }
 
 function fetchData(url, action) {

@@ -3,8 +3,12 @@ import {
     GET_CAMPAIGNS,
     SET_RANGE,
     SELECT_CAMPAIGN,
-    GET_INDEX_RPT
+    GET_INDEX_RPT,
+    GET_ADGROUPS,
+    SET_ONLONE_STATUS
 } from '../constants/index';
+
+
 
 export function balance(state = '', action) {
     switch (action.type) {
@@ -49,6 +53,23 @@ export function indexRpt(state = [], action) {
     switch (action.type) {
         case GET_INDEX_RPT:
             return action.indexRpt
+        default:
+            return state;
+
+    }
+}
+
+export function adgroups(state = [], action) {
+    switch (action.type) {
+        case GET_ADGROUPS:
+            return action.adgroups
+        case SET_ONLONE_STATUS:
+            const {index} = action;
+            return [
+                ...state.slice(0,index), // before the one we are updating
+                {...state[index], online_status: state[index].online_status === 'online' ? 'offline' : 'online'},
+                ...state.slice(index + 1) // after the one we are updating
+              ]
         default:
             return state;
 

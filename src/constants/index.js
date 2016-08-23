@@ -3,5 +3,7 @@ export const GET_CAMPAIGNS = 'GET_CAMPAIGNS';
 export const SET_RANGE = 'SET_RANGE'
 export const SELECT_CAMPAIGN = 'SELECT_CAMPAIGN'
 export const GET_INDEX_RPT = 'GET_INDEX_RPT'
+export const GET_ADGROUPS = 'GET_ADGROUPS'
+export const SET_ONLONE_STATUS = 'SET_ONLONE_STATUS'
 
 
