@@ -6,12 +6,15 @@ import { GET_ADGROUPS } from '../constants';
 require('styles//Adgroups.scss');
 
 class AdgroupsComponent extends React.Component {
-
-    componentWillMount() {
-        const { ajaxPostData/*, params:{campaignId}*/ } = this.props
-        ajaxPostData('adgroup_9214478', GET_ADGROUPS)
-
+    constructor(props){
+        super(props)
+        this.props.ajaxPostData('adgroup_9214478', GET_ADGROUPS)
     }
+    // componentWillMount() {
+    //     // const { ajaxPostData/*, params:{campaignId}*/ } = this.props
+    //     // ajaxPostData('adgroup_9214478', GET_ADGROUPS)
+
+    // }
     adgroupRender(adgroup, i) {
         return(
             <li key={adgroup.adgroup_id} id={adgroup.adgroup_id}>

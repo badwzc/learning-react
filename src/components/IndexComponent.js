@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import QnHeader from './HeaderComponent';
 import RangeSelect from './RangeSelectComponent';
 import CampaignSelect from './CampSelectComponent';
-
-import { GET_INDEX_RPT } from '../constants';
+import ChartComponent from './ChartComponent';
+import { GET_BALANCE, GET_INDEX_RPT } from '../constants';
 import baseConfig from '../config/base';
 
 require('styles//Index.scss');
@@ -13,18 +13,15 @@ require('styles//Index.scss');
 class IndexComponent extends Component {
     constructor(props) {
         super(props);
-    }
-
-    componentDidMount() {
         const { ajaxPostData, range, selectCampaignId } = this.props
+        ajaxPostData('account_balance', GET_BALANCE)
         ajaxPostData(`rpt_${selectCampaignId}_${range}`, GET_INDEX_RPT)
     }
-
     tableRender() {
         let { indexRpt } = this.props
         let tableJson = baseConfig.tableConfig
         let tableComponent = [], trCols = 4, tr = [];
-
+        let chartRender = this.props.setChart
         tableJson.forEach(function(tdData, index){
             trCols -= tdData.colSpan || 1
             let value = 0;
@@ -32,7 +29,18 @@ class IndexComponent extends Component {
                 value += rpt[tdData.name]
             })
             tdData.value = value
-            tr.push(<td colSpan={tdData.colSpan} key={tdData.name}><span className="number">{tdData.value}</span><span className="title">{tdData.title}</span></td>)
+            tr.push(
+                <td colSpan={tdData.colSpan}
+                    key={tdData.name}
+                    onClick={chartRender.bind(null, tdData.name)}
+                >
+                    <span className="number">
+                        {tdData.value}
+                    </span>
+                    <span className="title">
+                        {tdData.title}
+                    </span>
+                </td>)
             if(trCols === 0) {
                 tableComponent.push(<tr key={index}>{tr}</tr>)
                 tr = []
@@ -44,7 +52,7 @@ class IndexComponent extends Component {
     render() {
         return (
             <section className="index-component">
-                <QnHeader {...this.props}/>
+                <QnHeader {...this.props.balance}/>
                 <CampaignSelect {...this.props}/>
                 <RangeSelect {...this.props}/>
                 <table className="report-table">
@@ -52,6 +60,7 @@ class IndexComponent extends Component {
                         {this.tableRender()}
                     </tbody>
                 </table>
+                <ChartComponent {...this.props}/>
             </section>
         );
     }

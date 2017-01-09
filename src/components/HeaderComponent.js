@@ -1,15 +1,17 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { GET_BALANCE } from '../constants';
 
 require('styles//Header.scss');
 
 class HeaderComponent extends Component {
-    componentDidMount() {
-        const { ajaxPostData } = this.props
-        ajaxPostData('account_balance', GET_BALANCE)
+    constructor(props) {
+        super(props);
     }
+    // componentDidMount() {
+    //     const { ajaxPostData } = this.props
+    //     ajaxPostData('account_balance', GET_BALANCE)
+    // }
     render() {
         let logo = require('../images/Logo_80x80.png')
         return (

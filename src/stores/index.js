@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 
 //import midddleware
 import thunkMiddleware from 'redux-thunk';
-// import createLogger from 'redux-logger';
+import createLogger from 'redux-logger';
 
 // import the root reducer
 import rootReducer from '../reducers/index';
@@ -19,7 +19,7 @@ import rootReducer from '../reducers/index';
 // }
 const store = createStore(
     rootReducer,
-    applyMiddleware(thunkMiddleware/*, createLogger()*/)
+    applyMiddleware(thunkMiddleware, createLogger())
 );
 
 export const history = syncHistoryWithStore(browserHistory, store);

@@ -4,6 +4,8 @@
  *   https://github.com/matthew-andrews/isomorphic-fetch
  *
  */
+
+const DATA_URL = '../data/'
 import fetch from 'isomorphic-fetch'
 // 获取首页余额
 import {
@@ -13,35 +15,35 @@ import {
     SELECT_CAMPAIGN,
     GET_INDEX_RPT,
     GET_ADGROUPS,
-    SET_ONLONE_STATUS
+    SET_ONLONE_STATUS,
+    SET_CHART
 } from '../constants';
 
-export function changeOnlineStatus(index) {
-    return {
-        type: SET_ONLONE_STATUS,
-        index
-    }
-}
+export const changeOnlineStatus = index => ({
+    type: SET_ONLONE_STATUS,
+    index
+})
+
+export const setChart = key => ({
+    type: SET_CHART,
+    key
+})
 
 //range
-export function setRange(range) {
-    return (dispatch, getState) => {
-        const { selectCampaignId } = getState()
-        dispatch(ajaxPostData(`rpt_${selectCampaignId}_${range}`, GET_INDEX_RPT))
-        return {
-            type: SET_RANGE,
-            range
-        }
+export const setRange = range => (dispatch, getState) => {
+    const { selectCampaignId } = getState();
+    dispatch(fetchData(`rpt_${selectCampaignId}_${range}`, GET_INDEX_RPT));
+    return {
+        type: SET_RANGE,
+        range
     }
 }
-export function selectCampaign(campaign_id) {
-    return (dispatch, getState) => {
-        const { range } = getState()
-        dispatch(ajaxPostData(`rpt_${campaign_id}_${range}`, GET_INDEX_RPT))
-        return {
-            type: SELECT_CAMPAIGN,
-            campaign_id
-        }
+export const selectCampaign = campaign_id => (dispatch, getState) => {
+    const { range } = getState()
+    dispatch(fetchData(`rpt_${campaign_id}_${range}`, GET_INDEX_RPT))
+    return {
+        type: SELECT_CAMPAIGN,
+        campaign_id
     }
 }
 
@@ -72,7 +74,19 @@ export function getBalance() {
 */
 
 // ajax
-
+//可以改成switch结构 function返回
+/*
+*
+const actionList = (type, data) => {
+    switch(type) {
+        case GET_BALANCE:
+            return {
+                type: GET_BALANCE,
+                balance: data.data
+            }
+    }
+}
+ */
 const actionList = {
     GET_BALANCE: function(data) {
         return {
@@ -101,24 +115,17 @@ const actionList = {
 
 }
 
-function fetchData(url, action) {
-    return (dispatch) => {
-        let callback = actionList[action];
-        return fetch(`../data/${url}.json`)
-            .then(response => {
-                //简单错误处理
-                if(response.status >= 400) {
-                    throw new Error(`code：${response.status}请求失败啦!!!`);
-                }
-                return response.json()
-            })
-            .then(json => dispatch(callback(json)))
-    }
+const fetchData = (url, action) => (dispatch) => {
+    fetch(`${DATA_URL}${url}.json`)
+    .then(response => {
+        //简单错误处理
+        if(response.status >= 400) {
+            throw new Error(`code：${response.status}请求失败啦!!!`);
+        }
+        return response.json()
+    })
+    .then(json => dispatch(actionList[action](json)))
 }
 
 //请求的链接，暂时用data目录的数据
-export function ajaxPostData(url, action) {
-    return (dispatch) => {
-        return dispatch(fetchData(url, action))
-    }
-}
+export const ajaxPostData = (url, action) => (dispatch) => dispatch(fetchData(url, action));

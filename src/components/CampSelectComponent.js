@@ -4,11 +4,15 @@ import React, { Component } from 'react';
 import { GET_CAMPAIGNS } from '../constants';
 require('styles//CampSelect.scss');
 
+import { Select } from 'antd';
+const Option = Select.Option;
+
 class CampSelectComponent extends Component {
     //http://stackoverflow.com/questions/35303490/uncaught-typeerror-cannot-read-property-props-of-null
     //TODO 需要用箭头语法
-    changeHandle = (e) => {
-        this.props.selectCampaign(e.target.value - 0)
+
+    changeHandle = (value) => {
+        this.props.selectCampaign(value - 0)
     }
     componentDidMount() {
         const { ajaxPostData } = this.props;
@@ -17,17 +21,20 @@ class CampSelectComponent extends Component {
     }
     renderCampaignOptions(campaign, i) {
         return(
-            <option key={i} value={campaign.campaign_id}>
+            <Option key={i} value={campaign.campaign_id + ''}>
                 {campaign.title}
-            </option>
+            </Option>
         )
     }
     render() {
         return (
-            <select className="report_select" defaultValue={this.selectCampaignId} onChange={this.changeHandle}>
-                <option key="-1" value="-1">整店</option>
+            <Select className="report_select"
+                    size="large"
+                    defaultValue={this.props.selectCampaignId + ''}
+                    onChange={this.changeHandle}>
+                <Option key="-1" value="-1">整店</Option>
                 {this.props.campaigns.map(this.renderCampaignOptions)}
-            </select>
+            </Select>
         );
     }
 }

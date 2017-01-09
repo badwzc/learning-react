@@ -30,3 +30,5 @@ npm-debug.log
 bower_components/
 
 #dist 目录暂时不上传
+#编辑器配置不上传
+.idea/
