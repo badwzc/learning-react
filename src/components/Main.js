@@ -16,7 +16,7 @@ class Main extends Component {
         return (
             <section className="container">
                 {cloneElement(this.props.children, this.props)}
-                <QnFooter />
+                <QnFooter {...this.props}/>
             </section>
         );
     }

@@ -1,40 +1,38 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { GET_CAMPAIGNS } from '../constants';
+import { Picker, List } from 'antd-mobile';
+// import { Select } from 'antd';
+// const Option = Select.Option;
 require('styles//CampSelect.scss');
-
-import { Select } from 'antd';
-const Option = Select.Option;
 
 class CampSelectComponent extends Component {
     //http://stackoverflow.com/questions/35303490/uncaught-typeerror-cannot-read-property-props-of-null
     //TODO 需要用箭头语法
-
     changeHandle = (value) => {
         this.props.selectCampaign(value - 0)
     }
-    componentDidMount() {
-        const { ajaxPostData } = this.props;
-        ajaxPostData('campaign_list', GET_CAMPAIGNS)
+    renderCampaignOptions = (campaign, i) => ({
+        value: campaign.campaign_id,
+        label: campaign.title
+    })
 
-    }
-    renderCampaignOptions(campaign, i) {
-        return(
-            <Option key={i} value={campaign.campaign_id + ''}>
-                {campaign.title}
-            </Option>
-        )
-    }
     render() {
+        let listData = [{campaign_id: -1, title: '整店'}],
+            selectCampaignId = this.props.selectCampaignId,
+            changeHandle = this.changeHandle;
+        listData = listData.concat(this.props.campaigns);
         return (
-            <Select className="report_select"
-                    size="large"
-                    defaultValue={this.props.selectCampaignId + ''}
-                    onChange={this.changeHandle}>
-                <Option key="-1" value="-1">整店</Option>
-                {this.props.campaigns.map(this.renderCampaignOptions)}
-            </Select>
+            <List>
+                <Picker
+                    data={listData.map(this.renderCampaignOptions)}
+                    value={selectCampaignId}
+                    onPickerChange={(v)=>changeHandle(v)}
+                >
+                    <List.Item arrow="horizontal">选择计划</List.Item>
+                </Picker>
+            </List>
+
         );
     }
 }

@@ -5,7 +5,7 @@ import QnHeader from './HeaderComponent';
 import RangeSelect from './RangeSelectComponent';
 import CampaignSelect from './CampSelectComponent';
 import ChartComponent from './ChartComponent';
-import { GET_BALANCE, GET_INDEX_RPT } from '../constants';
+import { GET_BALANCE, GET_INDEX_RPT, GET_CAMPAIGNS } from '../constants';
 import baseConfig from '../config/base';
 
 require('styles//Index.scss');
@@ -16,23 +16,25 @@ class IndexComponent extends Component {
         const { ajaxPostData, range, selectCampaignId } = this.props
         ajaxPostData('account_balance', GET_BALANCE)
         ajaxPostData(`rpt_${selectCampaignId}_${range}`, GET_INDEX_RPT)
+        ajaxPostData('campaign_list', GET_CAMPAIGNS)
     }
     tableRender() {
-        let { indexRpt } = this.props
-        let tableJson = baseConfig.tableConfig
+        let { indexRpt, chartKey } = this.props;
+        let tableJson = baseConfig.tableConfig;
         let tableComponent = [], trCols = 4, tr = [];
-        let chartRender = this.props.setChart
+        let chartRender = this.props.setChart;
         tableJson.forEach(function(tdData, index){
-            trCols -= tdData.colSpan || 1
+            trCols -= tdData.colSpan || 1;
             let value = 0;
             indexRpt.forEach(function(rpt){
-                value += rpt[tdData.name]
+                value += rpt[tdData.name];
             })
-            tdData.value = value
+            tdData.value = value;
             tr.push(
                 <td colSpan={tdData.colSpan}
                     key={tdData.name}
                     onClick={chartRender.bind(null, tdData.name)}
+                    className={tdData.name === chartKey ? 'selected' : ''}
                 >
                     <span className="number">
                         {tdData.value}

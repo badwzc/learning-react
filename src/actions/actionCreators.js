@@ -16,7 +16,8 @@ import {
     GET_INDEX_RPT,
     GET_ADGROUPS,
     SET_ONLONE_STATUS,
-    SET_CHART
+    SET_CHART,
+    SET_ROUTE
 } from '../constants';
 
 export const changeOnlineStatus = index => ({
@@ -27,6 +28,11 @@ export const changeOnlineStatus = index => ({
 export const setChart = key => ({
     type: SET_CHART,
     key
+})
+
+export const setRoute = route => ({
+    type: SET_ROUTE,
+    route
 })
 
 //range

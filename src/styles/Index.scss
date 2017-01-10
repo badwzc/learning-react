@@ -11,7 +11,8 @@
     }
     .selected{
         background: gradient(linear, 0 0, 0 100%, from(#c2e4fb), to(#b9dffa));
-        box-shadow: 0px 1px 5px #3a3b3c;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#c2e4fb), to(#b9dffa));
+        // box-shadow: 0px 1px 5px #3a3b3c;
     }
     .number{
         font-size: 25px;

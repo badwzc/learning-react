@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Chart from 'chart.js';
 import { Line } from 'react-chartjs';
 require('styles//Chart.scss');
 const keyMap = {
@@ -9,7 +8,7 @@ const keyMap = {
     impressions : '展现量',
     click : '点击量',
     ctr : '点击率',
-    cpc : '点击单价',
+    cpc : '平均花费',
     pay : '成交额',
     pay_count : '成交数',
     fav_count : '收藏数',
@@ -24,28 +23,37 @@ class ChartComponent extends React.Component {
     }
 
     render() {
+        console.log(this.props.indexRpt)
+        let data = [], labels = [];
+        let { chartKey, indexRpt } = this.props
+        indexRpt.forEach(function(val){
+            data.push(val[chartKey]);
+            labels.push(val.date.substr(5))
+        })
+
         let chartData = {
-            labels: [keyMap[this.props.chartKey]],
+            labels: labels,
             datasets: [{
-                label: keyMap[this.props.chartKey],
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
+                label: keyMap[chartKey],
+                data: data,
+                borderWidth: 1,
+                fill: false,
+                fillColor: 'rgba(255,255,255,0)',
+                strokeColor: 'rgba(43,173,233,1)',
+                pointColor: 'rgba(220,220,220,1)',
+                pointStrokeColor: '#fff',
+                pointHighlightFill: '#fff',
+                pointHighlightStroke: 'rgba(220,220,220,1)',
             }]
-        }
-        let option = {
-            scales: {
-                xaxis: [{
-                    ticks: {
-                        // Create scientific notation labels
-                        callback: function(value, index, values) {
-                            return dates[Math.round(value)];
-                        }
-                    }
-                }]
-            }
-        }
+        };
+        let options = {
+            backgroundColors: ['rgba(255,255,255,1)'],
+            responsive: true
+        };
         return (
-            <Line data = {chartData} options = {option} width="100%" height="250"/>
+            <div className='chart-container'>
+                <Line data = {chartData} options={options}/>
+            </div>
         );
   }
 }

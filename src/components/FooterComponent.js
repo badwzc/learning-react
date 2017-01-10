@@ -3,41 +3,50 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
 import baseConfig from '../config/base'
-
-import { Menu, Icon } from 'antd';
-
+// import { Menu, Icon } from 'antd';
+import { TabBar } from 'antd-mobile';
+import { history } from '../stores/index';
 require('styles//Footer.scss');
 
 class FooterComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = { current: 'test1' };
     }
-    handleClick = (e) => {
-        this.setState({
-            current: e.key
-        });
+
+    handleClick = (route) => {
+        history.push(route)
+        console.log(this.props)
+        this.props.setRoute(route)
     }
     render() {
         //获取页脚配置
         let footerLinks = baseConfig.footerLink,
-            footerLinkComponent = [];
+            footerLinkComponent = [],
+            current = this.props.currentPage,
+            handleClick = this.handleClick;
         footerLinks.forEach(function(link){
             footerLinkComponent.push(
-                <Menu.Item  key={link.icon}>
-                    <Link to={link.address} className={link.icon}>
-                        {link.title}
-                    </Link>
-                </Menu.Item>
+                <TabBar.Item
+                    key={link.icon}
+                    title={link.title}
+                    icon={'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png'}
+                    selectedIcon={'https://zos.alipayobjects.com/rmsportal/HLkBvJOKnmOfBPO.png'}
+                    selected={link.icon === current}
+                    onPress={handleClick.bind(null, link.address)}
+                >
+                </TabBar.Item>
             )
         })
         return (
-            <Menu onClick={this.handleClick}
-                selectedKeys={[this.state.current]}
-                mode="horizontal"
+            <TabBar
+                unselectedTintColor="#949494"
+                tintColor="#33A3F4"
+                barTintColor="white"
+                hidden={false}
             >
                 {footerLinkComponent}
-            </Menu>
+            </TabBar>
+
         );
     }
 }

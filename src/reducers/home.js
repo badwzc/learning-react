@@ -6,7 +6,8 @@ import {
     GET_INDEX_RPT,
     GET_ADGROUPS,
     SET_ONLONE_STATUS,
-    SET_CHART
+    SET_CHART,
+    SET_ROUTE
 } from '../constants/index';
 
 
@@ -78,6 +79,14 @@ export function chartKey( state = 'cost', action) {
     switch (action.type) {
         case SET_CHART:
             return action.key
+        default:
+            return state;
+    }
+}
+export function currentPage( state = 'index', action) {
+    switch (action.type) {
+        case SET_ROUTE:
+            return action.route
         default:
             return state;
     }

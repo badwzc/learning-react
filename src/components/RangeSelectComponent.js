@@ -1,8 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { Select } from 'antd';
-const Option = Select.Option;
+import { Picker, List } from 'antd-mobile';
 
 require('styles//RangeSelect.scss');
 
@@ -10,23 +9,37 @@ class RangeSelectComponent extends Component {
     changeHandle = (value) => {
         this.props.setRange(value - 0)
     }
+
     render() {
-        let ranges = require('../data/ranges.json')
-        let rangeOptions = [];
-        ranges.forEach(function(value){
-            rangeOptions.push(
-                <Option value={value.day + ''} key={value.day}>
-                    {value.option}
-                </Option>
-            )
-        })
+        let rangeOptions = [{
+                "value": 0,
+                "label": "今日实时"
+            },
+            {
+                "value": 1,
+                "label": "昨天"
+            },
+            {
+                "value": 7,
+                "label": "7天"
+            },
+            {
+                "value": 15,
+                "label": "15天"
+            }],
+            range = this.props.range,
+            changeHandle = this.changeHandle;
+
         return (
-            <Select className="report_range"
-                    size="large"
-                    defaultValue={this.props.range + ''}
-                    onChange = {this.changeHandle}>
-                {rangeOptions}
-            </Select>
+            <List>
+                <Picker
+                    data={rangeOptions}
+                    value={range}
+                    onPickerChange={(v)=>changeHandle(v)}
+                >
+                    <List.Item arrow="horizontal">选择日期</List.Item>
+                </Picker>
+            </List>
         );
     }
 }
