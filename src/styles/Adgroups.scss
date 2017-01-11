@@ -1,12 +1,16 @@
-.product-list{
+.adgroup-list{
     li {
-        padding: 10px;
+        padding: 0.5em;
+        @at-root .list-item {
+            position: relative;
+            height: 1.4rem;
+        }
     }
     .img {
         position: absolute;
         top: 0;
         left: 0;
-        width: 70px;
+        width: 1.4rem;
         text-align: center;
         img {
             border: 1px solid #ccc;
@@ -15,20 +19,22 @@
     .content {
         position: absolute;
         top: 0;
-        left: 70px;
+        left: 1.4rem;
         vertical-align: top;
-        margin-right: 40px;
+        margin-right: 1rem;
+        @at-root p {
+            margin: 6px 0;
+            color: inherit;
+        }
         .title {
-            font-size: 12px;
         }
         .price {
-            font-size: 12px;
             color: red;
         }
     }
     .adgroup-status {
         color: #999;
-        font-size: 12px;
+        // font-size: 12px;
         position: absolute;
         margin-top: 22px;
         margin-right: 0;
@@ -41,7 +47,4 @@
         cursor: pointer;
     }
 }
-.list-item {
-    position: relative;
-    height: 60px;
-}
+

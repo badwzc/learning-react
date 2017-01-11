@@ -1,11 +1,13 @@
 .campselect-component {
     // border: 1px dashed #f00
 }
-.report_select {
-    width: 66%;
-    float: left;
+.slector {
+    display: flex;
+    justify-content: space-between;
 }
-.report_range {
+.campaign-selector {
+    width: 66%;
+}
+.range-selector {
     width: 30%;
-    float: right;
 }

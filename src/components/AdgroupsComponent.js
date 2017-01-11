@@ -10,11 +10,7 @@ class AdgroupsComponent extends React.Component {
         super(props)
         this.props.ajaxPostData('adgroup_9214478', GET_ADGROUPS)
     }
-    // componentWillMount() {
-    //     // const { ajaxPostData/*, params:{campaignId}*/ } = this.props
-    //     // ajaxPostData('adgroup_9214478', GET_ADGROUPS)
 
-    // }
     adgroupRender(adgroup, i) {
         return(
             <li key={adgroup.adgroup_id} id={adgroup.adgroup_id}>
@@ -34,7 +30,7 @@ class AdgroupsComponent extends React.Component {
     }
     render() {
         return (
-            <ul className="adgroups-component list product-list adgroup-list">
+            <ul className="adgroups-component list adgroup-list">
                 {this.props.adgroups.map(this.adgroupRender.bind(this))}
             </ul>
         );

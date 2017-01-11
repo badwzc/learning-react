@@ -6,7 +6,8 @@
  */
 
 const DATA_URL = '../data/'
-import fetch from 'isomorphic-fetch'
+// import fetch from 'isomorphic-fetch'
+import 'whatwg-fetch'
 // 获取首页余额
 import {
     GET_CAMPAIGNS,
@@ -19,6 +20,7 @@ import {
     SET_CHART,
     SET_ROUTE
 } from '../constants';
+import { history } from '../stores/index';
 
 export const changeOnlineStatus = index => ({
     type: SET_ONLONE_STATUS,
@@ -30,10 +32,13 @@ export const setChart = key => ({
     key
 })
 
-export const setRoute = route => ({
-    type: SET_ROUTE,
-    route
-})
+export const setRoute = link => {
+    history.push(link.address)
+    return {
+        type: SET_ROUTE,
+        route: link.icon
+    }
+}
 
 //range
 export const setRange = range => (dispatch, getState) => {
@@ -122,7 +127,12 @@ const actionList = {
 }
 
 const fetchData = (url, action) => (dispatch) => {
-    fetch(`${DATA_URL}${url}.json`)
+    fetch(`${DATA_URL}${url}.json`, {
+        // method: 'POST',
+        headers: {
+            'X-CSRFToken': '1212121212'
+        }
+    })
     .then(response => {
         //简单错误处理
         if(response.status >= 400) {

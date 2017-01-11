@@ -53,10 +53,12 @@ class IndexComponent extends Component {
     }
     render() {
         return (
-            <section className="index-component">
+            <section className="container">
                 <QnHeader {...this.props.balance}/>
-                <CampaignSelect {...this.props}/>
-                <RangeSelect {...this.props}/>
+                <div className="slector">
+                    <CampaignSelect {...this.props}/>
+                    <RangeSelect {...this.props}/>
+                </div>
                 <table className="report-table">
                     <tbody>
                         {this.tableRender()}

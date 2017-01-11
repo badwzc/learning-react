@@ -15,7 +15,7 @@ class HeaderComponent extends Component {
     render() {
         let logo = require('../images/Logo_80x80.png')
         return (
-            <header>
+            <header className="container">
                 <img src={logo} className="logo"/>
                 <h1>账户余额
                     <span id="balance">{this.props.balance}</span>

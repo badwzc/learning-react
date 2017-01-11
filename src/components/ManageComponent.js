@@ -18,11 +18,9 @@ class ManageComponent extends Component {
 
     render() {
         return (
-            <div className="manage-component">
-                <ul className="list campaign-list">
-                    {this.props.campaigns.map(this.renderCampaigns)}
-                </ul>
-            </div>
+            <ul className="list campaign-list">
+                {this.props.campaigns.map(this.renderCampaigns)}
+            </ul>
         );
     }
 }

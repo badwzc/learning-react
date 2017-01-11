@@ -1,11 +1,9 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { Link } from 'react-router'
 import baseConfig from '../config/base'
 // import { Menu, Icon } from 'antd';
 import { TabBar } from 'antd-mobile';
-import { history } from '../stores/index';
 require('styles//Footer.scss');
 
 class FooterComponent extends Component {
@@ -13,10 +11,8 @@ class FooterComponent extends Component {
         super(props);
     }
 
-    handleClick = (route) => {
-        history.push(route)
-        console.log(this.props)
-        this.props.setRoute(route)
+    handleClick = (link) => {
+        this.props.setRoute(link)
     }
     render() {
         //获取页脚配置
@@ -24,6 +20,7 @@ class FooterComponent extends Component {
             footerLinkComponent = [],
             current = this.props.currentPage,
             handleClick = this.handleClick;
+
         footerLinks.forEach(function(link){
             footerLinkComponent.push(
                 <TabBar.Item
@@ -32,7 +29,7 @@ class FooterComponent extends Component {
                     icon={'https://zos.alipayobjects.com/rmsportal/UNQhIatjpNZHjVf.png'}
                     selectedIcon={'https://zos.alipayobjects.com/rmsportal/HLkBvJOKnmOfBPO.png'}
                     selected={link.icon === current}
-                    onPress={handleClick.bind(null, link.address)}
+                    onPress={handleClick.bind(null, link)}
                 >
                 </TabBar.Item>
             )

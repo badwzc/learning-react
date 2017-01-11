@@ -23,12 +23,11 @@ class ChartComponent extends React.Component {
     }
 
     render() {
-        console.log(this.props.indexRpt)
         let data = [], labels = [];
         let { chartKey, indexRpt } = this.props
         indexRpt.forEach(function(val){
-            data.push(val[chartKey]);
-            labels.push(val.date.substr(5))
+            data.unshift(val[chartKey]);
+            labels.unshift(val.date.substr(5))
         })
 
         let chartData = {
@@ -43,7 +42,7 @@ class ChartComponent extends React.Component {
                 pointColor: 'rgba(220,220,220,1)',
                 pointStrokeColor: '#fff',
                 pointHighlightFill: '#fff',
-                pointHighlightStroke: 'rgba(220,220,220,1)',
+                pointHighlightStroke: 'rgba(220,220,220,1)'
             }]
         };
         let options = {

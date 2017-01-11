@@ -50,7 +50,7 @@ export default {
         {
             'address': '/',
             'title': '首页',
-            'icon': 'test1'
+            'icon': 'index'
         },
         {
             'address': '/manage',

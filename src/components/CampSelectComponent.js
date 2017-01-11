@@ -12,7 +12,7 @@ class CampSelectComponent extends Component {
     changeHandle = (value) => {
         this.props.selectCampaign(value - 0)
     }
-    renderCampaignOptions = (campaign, i) => ({
+    renderCampaignOptions = (campaign) => ({
         value: campaign.campaign_id,
         label: campaign.title
     })
@@ -23,10 +23,10 @@ class CampSelectComponent extends Component {
             changeHandle = this.changeHandle;
         listData = listData.concat(this.props.campaigns);
         return (
-            <List>
+            <List className="campaign-selector">
                 <Picker
                     data={listData.map(this.renderCampaignOptions)}
-                    value={selectCampaignId}
+                    value={[selectCampaignId]}
                     onPickerChange={(v)=>changeHandle(v)}
                 >
                     <List.Item arrow="horizontal">选择计划</List.Item>
